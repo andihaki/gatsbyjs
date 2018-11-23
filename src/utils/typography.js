@@ -1,7 +1,8 @@
 import Typography from "typography"
-import Theme from "typography-theme-kirkham"
+import kirkhamTheme from "typography-theme-kirkham"
 
 // const typography = new Typography({ baseFontSize: "18px" })
-const typography = new Typography(Theme)
+const typography = new Typography(kirkhamTheme)
 
 export default typography
+export const rhythm = typography.rhythm

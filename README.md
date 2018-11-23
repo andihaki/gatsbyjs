@@ -10,3 +10,15 @@ Or [view the live demo here](https://gatsby-starter-hello-world-demo.netlify.com
 
 ## Running in development
 `gatsby develop`
+
+
+# gatsby
+1. nambah data ke graphQL pake createNodeField
+    const { createNodeField } = actions;
+
+# graphQL
+- tanggal
+    (sort: {fields: [frontmatter___date], order: DESC})
+
+# tearkhir
+https://www.gatsbyjs.org/tutorial/part-seven/#creating-pages

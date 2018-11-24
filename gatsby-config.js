@@ -1,8 +1,9 @@
 module.exports = {
     siteMetadata: {
-        title: `Brand`,
+        title: `busyLESSman`,
     },
     plugins: [
+        
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -11,6 +12,7 @@ module.exports = {
             },
         },
         `gatsby-transformer-remark`,
+        `gatsby-plugin-styled-components`,
         `gatsby-plugin-emotion`,
         {
             resolve: `gatsby-plugin-typography`,
@@ -18,5 +20,6 @@ module.exports = {
                 pathToConfigModule: `src/utils/typography.js`,
             },
         },
+        
     ],
 }

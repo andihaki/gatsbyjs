@@ -18,19 +18,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 // bikin pages
-exports.createPages = ({ graphql, actions}) => {
+exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
     return new Promise(( resolve, reject ) => {
         graphql(`
             {
                 allMarkdownRemark {
-                edges {
-                    node {
-                    fields {
-                        slug
+                    edges {
+                        node {
+                            fields {
+                                slug
+                            }
+                        }
                     }
-                    }
-                }
                 }
             }
         `).then( result => {

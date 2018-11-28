@@ -1,12 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 import Header from "../components/header";
 
-const Content = styled.div`
-  background-color: black;
-  height: 100%;
-  margin: 0 auto -65px;
+const GlobalStyle = createGlobalStyle`
+    body {
+        background-color: black;
+        color: white;
+    }
 `;
 
 const Jobs = styled.h3`
@@ -16,7 +17,8 @@ const Jobs = styled.h3`
 class Home extends React.Component {
   render() {
     return (
-      <Content>
+      <div>
+        <GlobalStyle />
         <Header headerText="Home Page" />
         <Jobs>
           Seorang <em>Software Engineer</em>
@@ -37,7 +39,7 @@ class Home extends React.Component {
         <div>Social Media</div>
 
         <div />
-      </Content>
+      </div>
     );
   }
 }

@@ -40,6 +40,7 @@ class Home extends React.Component {
         </div>
 
         <div>Social Media</div>
+        <div>Github | Instagram | Youtube | Medium | Unsplash</div>
 
         <div>Website ini dibangun dengan:</div>
         <div>GatsbyJS | ReactJs | GraphQL | GitLab Pages</div>

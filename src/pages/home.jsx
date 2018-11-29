@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Jobs = styled.h3`
-  color: green;
+  color: yellow;
 `;
 
 class Home extends React.Component {
@@ -21,13 +21,16 @@ class Home extends React.Component {
         <GlobalStyle />
         <Header headerText="Home Page" />
         <Jobs>
-          Seorang <em>Software Engineer</em>
+          Seorang <em>Agnostic Software Engineer</em>
         </Jobs>
-
-        <div>
-          <em>Agnostic software engineer, which is</em> mengerti backEnd,
-          frontEnd & sedikit devOps.
-        </div>
+        <Jobs>
+          Seorang insinyur perangkat lunak <strike>pengennya</strike> serba bisa
+        </Jobs>
+        <Jobs>
+          Seorang yang coba fokus sebagai <em>FrontEnd Developer</em>
+        </Jobs>
+        <Jobs>Seorang buta warna parsial 8-)</Jobs>
+        <Jobs>Seorang bernama Andi Hakim</Jobs>
 
         <div>
           Masih tinggal di Jakarta, Indonesia.{" "}
@@ -37,6 +40,9 @@ class Home extends React.Component {
         </div>
 
         <div>Social Media</div>
+
+        <div>Website ini dibangun dengan:</div>
+        <div>GatsbyJS | ReactJs | GraphQL | GitLab Pages</div>
 
         <div />
       </div>

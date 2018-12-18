@@ -1,41 +1,43 @@
 import React from "react";
 
-import { css } from "react-emotion";
 import { graphql, Link } from "gatsby";
+import styled from "styled-components";
 
-import Header from "../components/header";
 import Layout from "../components/layout";
+// import Header from "../components/header";
+import Footer from "../components/footer";
+
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
+const DateStyled = styled.span`
+  color: #bbb;
+`;
+
+const BorderTopBottom = styled.div`
+  border-top: 0.025px solid #808080;
+  text-align: center;
+`;
 
 export default ({ data }) => (
   <Layout>
-    <Header headerText="Home Page" />
-
-    <div>
-      <h4>{data.allMarkdownRemark.totalCount} Posting</h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link
-            to={node.fields.slug}
-            className={css`
-              text-decoration: none;
-              color: inherit;
-            `}
-          >
-            <h3>
-              {node.frontmatter.title}{" "}
-              <span
-                className={css`
-                  color: #bbb;
-                `}
-              >
-                - {node.frontmatter.date}
-              </span>
-            </h3>
-            <p>{node.excerpt}</p>
-          </Link>
-        </div>
-      ))}
-    </div>
+    {/* <Header headerText="Home Page" /> */}
+    
+    <h4>{data.allMarkdownRemark.totalCount} Posting</h4>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <BorderTopBottom key={node.id}>
+        <LinkStyled to={node.fields.slug}>
+          <h3>
+            {node.frontmatter.title}{" "}
+            <DateStyled> - {node.frontmatter.date}</DateStyled>
+          </h3>
+          {/* <p>{node.excerpt}</p> */}
+        </LinkStyled>
+      </BorderTopBottom>
+    ))}
+   <Footer />
   </Layout>
 );
 

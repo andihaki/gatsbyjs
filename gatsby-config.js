@@ -13,13 +13,7 @@ module.exports = {
         },
         `gatsby-transformer-remark`,
         `gatsby-plugin-styled-components`,
-        `gatsby-plugin-emotion`,
-        {
-            resolve: `gatsby-plugin-typography`,
-            options: {
-                pathToConfigModule: `src/utils/typography.js`,
-            },
-        },
-        
+        `gatsby-plugin-emotion`,        
     ],
+    pathPrefix: `/font`,
 }

@@ -1,11 +1,10 @@
 import React from "react";
 
 import { css } from "react-emotion";
+import { graphql, Link } from "gatsby";
 
 import Header from "../components/header";
 import Layout from "../components/layout";
-import { rhythm } from "../utils/typography";
-import { graphql, Link } from "gatsby";
 
 export default ({ data }) => (
   <Layout>
@@ -22,11 +21,7 @@ export default ({ data }) => (
               color: inherit;
             `}
           >
-            <h3
-              className={css`
-                margin-bottom: ${rhythm(1 / 4)};
-              `}
-            >
+            <h3>
               {node.frontmatter.title}{" "}
               <span
                 className={css`

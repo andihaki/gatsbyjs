@@ -24,6 +24,10 @@ class Typed extends React.Component {
 
   TIMEOUT;
 
+  componentWillUnmount(){
+    window.clearTimeout(this.TIMEOUT);
+  }
+
   componentDidMount() {
     // console.log('cDM');
     const data = Object.assign({}, this.state);

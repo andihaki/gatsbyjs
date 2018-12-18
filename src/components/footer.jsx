@@ -1,6 +1,7 @@
 import React from "react";
 
 import styled from "styled-components";
+import { NewTab } from "./svgShape";
 
 const LinkStyled = styled.div`
     text-align: center;
@@ -9,5 +10,5 @@ const LinkStyled = styled.div`
 `;
 
 export default () => (
-    <LinkStyled>Github | Instagram | Youtube | Medium | Unsplash</LinkStyled>
+    <LinkStyled>Github<NewTab/> | Instagram<NewTab/> | Youtube<NewTab/> | Medium<NewTab/> | Unsplash<NewTab/></LinkStyled>
 )

@@ -36,7 +36,6 @@ export default ({ data }) => (
             {node.frontmatter.title}{" "}
             <DateStyled> - {node.frontmatter.date.split(" ")[2]}</DateStyled>
           </h3>
-          {/* <p>{node.excerpt}</p> */}
         </LinkStyled>
       </BorderTop>
     ))}

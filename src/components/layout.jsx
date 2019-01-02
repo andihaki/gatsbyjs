@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.25em;
     }
 
+    code[class*="language-"] {
+      font-size: 12px;
+    }
+
     a:link {
       text-decoration: none;
       color: ${props => props.darkPage ? 'white' : 'black'};

@@ -48,13 +48,14 @@ export default () => (
           }
         `}
         render={data => (
-          <PostHeader isActive={window.location.pathname === "/"} >{data.site.siteMetadata.title}</PostHeader>
+          <PostHeader isActive={window.location.pathname.search("/blog") < 0} >{data.site.siteMetadata.title}</PostHeader>
         )}
       />
     </LinkStyled>
     <RightNavBar>
       <LinkStyled to="/blog">
-        <PostHeader isActive={window.location.pathname === "/blog"} >blog</PostHeader>
+        {/* <PostHeader isActive={window.location.pathname === "/blog"} >blog</PostHeader> */}
+        <PostHeader isActive={window.location.pathname.search("/blog") >= 0} >blog</PostHeader>
       </LinkStyled>
     </RightNavBar>
   </NavBar>

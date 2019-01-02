@@ -4,21 +4,7 @@ import { NewTab } from "./svgShape";
 
 const LinkStyled = styled.div`
 	text-align: center;
-	// border-top: 0.025px solid #808080;
 	padding-top: 1.5em;
-
-	// a:link {
-	// 	text-decoration: none;
-	// 	color: white;
-	// }
-	// a:visited {
-	// 	text-decoration: none;
-	// 	color: white;
-	// }
-	// a:hover {
-	// 	text-decoration: underline;
-	// 	color: white;
-	// }
 `;
 
 export default () => (

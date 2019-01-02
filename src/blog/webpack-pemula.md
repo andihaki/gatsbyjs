@@ -14,7 +14,7 @@ Menurut [quora](https://www.quora.com/What-is-Webpack), singkatnya webpack adala
 $ npm -v && node -v
 ```
 - jalankan npm init & input data yang diperlukan
-	![init](img/blogs/webpack-pemula/npm-init.png)	
+	![init](/images/webpack-pemula/npm-init.png)	
 - install webpack
 ```bash
 $ npm i -D -g webpack@latest
@@ -168,7 +168,7 @@ babel: compiler, untuk code legacy.
 - tambahkan div root di my-index.html
 	```bash
     …
-	<h1 id=“title"></h1>
+	<h1 id="title"></h1>
 	<div id="root"></div>
 	…
     ```

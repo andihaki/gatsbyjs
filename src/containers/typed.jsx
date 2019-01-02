@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Jobs = styled.h3`
   color: green;
+  font-size: 1.5em;
 `;
 
 class Typed extends React.Component {
@@ -13,7 +14,7 @@ class Typed extends React.Component {
       "saya seorang buta warna",
       "saya fans anime one piece",
       "saya fans reactJs",
-      "saya seorang kapiten"
+      "saya seorang kapiten :)"
     ],
     text: "",
     step: 0,

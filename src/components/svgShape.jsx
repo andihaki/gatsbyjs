@@ -18,7 +18,7 @@ const WaveMedium = () => (
 )
 
 const NewTab = () => (
-    <svg x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="css-19vhmgv" >
+    <svg x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" className="css-19vhmgv" >
         <g transform="translate(5,15)">
             <path fill="currentColor" d="
                 M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,

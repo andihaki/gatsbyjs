@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 // import Header from "../components/header";
 import Footer from "../components/footer";
+import Typed from "../containers/typed";
 
 const LinkStyled = styled(Link)`
   text-decoration: none;
@@ -16,34 +17,40 @@ const DateStyled = styled.span`
   color: #bbb;
 `;
 
-const BorderTopBottom = styled.div`
+const BorderTop = styled.div`
   border-top: 0.025px solid #808080;
   text-align: center;
+  ${props => props.lastItem ? 'border-bottom: 0.025px solid #808080;' : null}
 `;
 
 export default ({ data }) => (
   <Layout>
-    {/* <Header headerText="Home Page" /> */}
+    <Typed />
+    {/* <Header headerText="Portofolio" /> */}
     
     <h4>{data.allMarkdownRemark.totalCount} Posting</h4>
-    {data.allMarkdownRemark.edges.map(({ node }) => (
-      <BorderTopBottom key={node.id}>
+    {data.allMarkdownRemark.edges.map(({ node }, index) => (
+      <BorderTop key={node.id} lastItem={parseInt(data.allMarkdownRemark.totalCount)-1 === parseInt(index)}>
         <LinkStyled to={node.fields.slug}>
           <h3>
             {node.frontmatter.title}{" "}
-            <DateStyled> - {node.frontmatter.date}</DateStyled>
+            <DateStyled> - {node.frontmatter.date.split(" ")[2]}</DateStyled>
           </h3>
           {/* <p>{node.excerpt}</p> */}
         </LinkStyled>
-      </BorderTopBottom>
+      </BorderTop>
     ))}
+    
    <Footer />
   </Layout>
 );
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC },
+        filter: { fileAbsolutePath: { regex: "/(pages)/"}} 
+      ) {
       totalCount
       edges {
         node {

@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       font-size: 1.25em;
+      // font-size: 3vw;
     }
 
     code[class*="language-"] {
@@ -51,6 +52,10 @@ const GlobalStyle = createGlobalStyle`
 const Grid = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
+
+  img {
+    max-width: 100%;
+  }
 `;
 
 

@@ -27,6 +27,7 @@ const PostHeader = styled.p`
   ${props => props.isActive ? 
     `
       font-size: 1.5em;
+      // font-size: 5vw;
       font-weight: bold;
     ` : 
     `

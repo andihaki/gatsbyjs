@@ -30,7 +30,7 @@ instalasi :
 `ghost install local`
 
 ntaps, instalasi berhasil dan akses ghost di [localhost](http://localhost:2368/)
-![instalasi-selesai](/images/hosting-ghost-di-gitlab/ghost-local.png)
+![instalasi-selesai](/images/blog/hosting-ghost-di-gitlab/ghost-local.png)
 
 untuk url CMS / *admin* : [localhost:2368/ghost](http://localhost:2368/ghost).
 

@@ -14,7 +14,7 @@ Menurut [quora](https://www.quora.com/What-is-Webpack), singkatnya webpack adala
 $ npm -v && node -v
 ```
 - jalankan npm init & input data yang diperlukan
-	![init](/images/webpack-pemula/npm-init.png)	
+	![init](/images/blog/webpack-pemula/npm-init.png)	
 - install webpack
 ```bash
 $ npm i -D -g webpack@latest

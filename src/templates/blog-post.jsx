@@ -2,17 +2,21 @@
 // trus di render
 import React from "react";
 import { graphql } from "gatsby";
+import styled from "styled-components";
 
 import Layout from "../components/layout";
 
 // import {Wave} from "../components/svgShape";
+const Header = styled.h1`
+    // font-size: 4vw;
+`;
 
 export default ({ data }) => {
     const post = data.markdownRemark
     return (
         <Layout>
             <div>
-                <h1>{post.frontmatter.title}</h1>
+                <Header>{post.frontmatter.title}</Header>
                 {/* <Wave /> */}
                 <div dangerouslySetInnerHTML={{__html: post.html}} />
             </div>

@@ -7,6 +7,12 @@ const LinkStyled = styled(Link)`
   background-image: none;
   color: #ffffff;
   text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:visited  {
+    text-decoration: none;
+  }
 `;
 
 const NavBar = styled.div`
@@ -32,6 +38,14 @@ const PostHeader = styled.p`
     ` : 
     `
       opacity: 0.7;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus,
+      &:visited {
+        opacity: 1;
+        text-decoration: none;
+      }
     `};
 `;
 

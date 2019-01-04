@@ -62,7 +62,7 @@ const Grid = styled.div`
 export default ({ children }) => (
   <Grid>
     <GlobalStyle
-      darkPage={window.location.pathname.search("blog") < 0}
+      darkPage={typeof window !== "undefined" ? window.location.pathname.search("blog") < 0: true}
       suppressMultiMountWarning 
       />
     <Navbar />

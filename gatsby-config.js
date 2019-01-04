@@ -33,7 +33,6 @@ module.exports = {
             },
         },
         `gatsby-plugin-styled-components`,
-        `gatsby-plugin-emotion`,
         {
             resolve: `gatsby-transformer-remark`,
             options: {

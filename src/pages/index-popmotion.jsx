@@ -80,11 +80,11 @@ const Ul = styled.ul`
 
 const Sidebar = posed(Ul)({
   open: {
-    // x: "0%",
+    x: "0%",
     // delayChildren: 1,
     staggerChildren: 100
-  }
-  // closed: { x: "-100%" }
+  },
+  closed: { x: "-100%", delay: 10 }
 });
 
 const Item = posed.li({

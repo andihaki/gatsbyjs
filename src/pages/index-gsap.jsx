@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import posed from "react-pose";
+import { TimelineLite } from "gsap/all";
 
 import Layout from "../components/layout";
 // import Header from "../components/header";
@@ -73,26 +73,7 @@ const DateStyled = styled.span`
   color: #bbb;
 `;
 
-const Ul = styled.ul`
-  list-style: none;
-  padding-left: 0;
-`;
-
-const Sidebar = posed(Ul)({
-  open: {
-    // x: "0%",
-    // delayChildren: 1,
-    staggerChildren: 100
-  }
-  // closed: { x: "-100%" }
-});
-
-const Item = posed.li({
-  open: { x: 0, opacity: 1 },
-  closed: { x: 20, opacity: 0 }
-});
-
-const BorderTop = styled(Item)`
+const BorderTop = styled.div`
   border-top: 0.025px solid #808080;
   text-align: center;
   ${props => (props.lastItem ? "border-bottom: 0.025px solid #808080;" : null)}
@@ -103,44 +84,47 @@ const Title = styled.h3`
 `;
 
 export default class Index extends React.Component {
-  state = { isOpen: false };
-
-  componentDidMount() {
-    setTimeout(this.toggle, 1000);
+  constructor(props) {
+    super(props);
+    // console.log(props);
+    this.myTween = new TimelineLite({ paused: true });
+    this.myElements = [];
   }
 
-  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+  componentDidMount() {
+    this.myTween.staggerFrom(this.myElements, 0.5, { y: -1000 }, 0.3);
+    this.myTween.play();
+  }
 
   render() {
     const { data } = this.props;
-    const { isOpen } = this.state;
     return (
       <Layout>
         <Typed />
         {/* <Header headerText="Portofolio" /> */}
 
         <h4>{data.allMarkdownRemark.totalCount} Posting</h4>
-        <Sidebar pose={isOpen ? "open" : "closed"}>
-          {data.allMarkdownRemark.edges.map(({ node }, index) => (
-            <BorderTop
-              key={node.id}
-              lastItem={
-                parseInt(data.allMarkdownRemark.totalCount) - 1 ===
-                parseInt(index)
-              }
-            >
-              <LinkStyled to={node.fields.slug}>
-                <Title>
-                  {node.frontmatter.title}{" "}
-                  <DateStyled>
-                    {" "}
-                    - {node.frontmatter.date.split(" ")[2]}
-                  </DateStyled>
-                </Title>
-              </LinkStyled>
-            </BorderTop>
-          ))}
-        </Sidebar>
+        {data.allMarkdownRemark.edges.map(({ node }, index) => (
+          <BorderTop
+            key={node.id}
+            lastItem={
+              parseInt(data.allMarkdownRemark.totalCount) - 1 ===
+              parseInt(index)
+            }
+            ref={li => (this.myElements[index] = li)}
+          >
+            <LinkStyled to={node.fields.slug}>
+              <Title>
+                {node.frontmatter.title}{" "}
+                <DateStyled>
+                  {" "}
+                  - {node.frontmatter.date.split(" ")[2]}
+                </DateStyled>
+              </Title>
+            </LinkStyled>
+          </BorderTop>
+        ))}
+
         <Footer />
       </Layout>
     );

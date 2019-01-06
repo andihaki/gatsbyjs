@@ -8,7 +8,7 @@ const elementsArray = [
   "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum voluptates natus delectus ex corrupti iure expedita ea repellat laborum sint temporibus sequi autem quia blanditiis distinctio, officia ipsa et nesciunt."
 ];
 
-class Animation extends React.Component {
+export default class Animation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,12 +25,7 @@ class Animation extends React.Component {
     //   .to(this.myElement, 0.5, { x: 100 })
     //   .to(this.myElement, 0.5, { y: 100, rotation: 180 })
     //   .play();
-    this.myTween.staggerFrom(
-      this.myElements,
-      0.5,
-      { y: -25, autoAlpha: 1 },
-      0.2
-    );
+    this.myTween.staggerFrom(this.myElements, 0.5, { y: -200 }, 0.3);
     this.myTween.play();
   }
 
@@ -50,4 +45,4 @@ class Animation extends React.Component {
   }
 }
 
-export default Animation;
+// export default Animation;

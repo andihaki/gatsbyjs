@@ -1,5 +1,4 @@
 import React from "react";
-
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 
@@ -32,18 +31,39 @@ const LinkStyled = styled(Link)`
     margin: 0 auto;
   }
 
-  &:hover:after, 
+  &:hover:after,
   &:focus:after,
-  &:active:after{
+  &:active:after {
     width: 91%; /* fallback */
     width: calc(100% - 8rem);
     background-color: #fff; /* fallback */
-    background: #f09433; 
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: #f09433;
+    background: -moz-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-    color:transparent;
+    color: transparent;
   }
 `;
 
@@ -54,16 +74,16 @@ const DateStyled = styled.span`
 const BorderTop = styled.div`
   border-top: 0.025px solid #808080;
   text-align: center;
-  ${props => props.lastItem ? 'border-bottom: 0.025px solid #808080;' : null}
+  ${props => (props.lastItem ? "border-bottom: 0.025px solid #808080;" : null)}
 `;
 
 const Title = styled.h3`
-text-decoration: none;
+  text-decoration: none;
   // &:hover {
-  //   background: #f09433; 
-  //   background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-  //   background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-  //   background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  //   background: #f09433;
+  //   background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  //   background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  //   background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
   //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
   //   color:transparent;
   //   -webkit-background-clip: text;
@@ -80,10 +100,15 @@ export default ({ data }) => (
   <Layout>
     <Typed />
     {/* <Header headerText="Portofolio" /> */}
-    
+
     <h4>{data.allMarkdownRemark.totalCount} Posting</h4>
     {data.allMarkdownRemark.edges.map(({ node }, index) => (
-      <BorderTop key={node.id} lastItem={parseInt(data.allMarkdownRemark.totalCount)-1 === parseInt(index)}>
+      <BorderTop
+        key={node.id}
+        lastItem={
+          parseInt(data.allMarkdownRemark.totalCount) - 1 === parseInt(index)
+        }
+      >
         <LinkStyled to={node.fields.slug}>
           <Title>
             {node.frontmatter.title}{" "}
@@ -92,17 +117,17 @@ export default ({ data }) => (
         </LinkStyled>
       </BorderTop>
     ))}
-    
-   <Footer />
+
+    <Footer />
   </Layout>
 );
 
 export const query = graphql`
   query {
     allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC },
-        filter: { fileAbsolutePath: { regex: "/(pages)/"}} 
-      ) {
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/(pages)/" } }
+    ) {
       totalCount
       edges {
         node {
